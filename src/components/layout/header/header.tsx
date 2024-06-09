@@ -1,4 +1,4 @@
-import CurrentUser from "./current-user"
+import CurrentUser from "../current-user/current-user"
 
 const header = () => {
   return (
