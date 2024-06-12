@@ -2,6 +2,7 @@ import { Card, List } from 'antd'
 import { CalendarOutlined } from '@ant-design/icons'
 import { Text } from '@/components/text/text'
 import { useState } from 'react'
+import UpcomingEventsSkeleton from '../skeleton/upcoming-events'
 
 const UpcomingEvents = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -30,9 +31,8 @@ const UpcomingEvents = () => {
                 dataSource={Array.from({length: 5}).map((_, index) => ({
                     id:index,
                 }))}
-            >
-                
-            </List>
+                renderItem={() => <UpcomingEventsSkeleton/>}
+            />
          ):(
             <List>
                 
@@ -43,3 +43,5 @@ const UpcomingEvents = () => {
 }
 
 export default UpcomingEvents 
+
+// ! after proper fixing of graphql use the code from bkp-upevents.txt file 
