@@ -18,6 +18,7 @@ import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom"
 import Layout from "./components/layout";
 import { resource } from "./config/resource";
 import Edit from "./pages/companies/edit";
+import TasksList from "./pages/tasks/list";
 
 
 
@@ -69,7 +70,10 @@ function App() {
                         <Route path="new" element={<Create/>} />
                         <Route path="edit/:id" element={<Edit/>} />
                       </Route>
-                      
+                      <Route path="/tasks"> 
+                        <Route index element={<TasksList />} />
+
+                      </Route>
                     
 
                   </Route>
