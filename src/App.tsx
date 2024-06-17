@@ -19,6 +19,8 @@ import Layout from "./components/layout";
 import { resource } from "./config/resource";
 import Edit from "./pages/companies/edit";
 import TasksList from "./pages/tasks/list";
+import CreateTasks from "./pages/tasks/create";
+import EditTasks from "./pages/tasks/edit";
 
 
 
@@ -70,9 +72,13 @@ function App() {
                         <Route path="new" element={<Create/>} />
                         <Route path="edit/:id" element={<Edit/>} />
                       </Route>
-                      <Route path="/tasks"> 
-                        <Route index element={<TasksList />} />
-
+                      <Route path="/tasks" element={
+                      <TasksList>
+                        <Outlet/>
+                      </TasksList>
+                    }> 
+                        <Route path="new" element={<CreateTasks/>}/>
+                        <Route path="edit/:id" element={<EditTasks/>}/>
                       </Route>
                     
 

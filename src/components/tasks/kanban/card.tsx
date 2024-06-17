@@ -23,7 +23,7 @@ import {
 import dayjs from "dayjs";
 
 import CustomAvatar from '@/components/custom-avatar';
-// import { CustomAvatar, TextIcon } from "";
+import { TextIcon } from "@/components/text-icon";
 import { Text } from '@/components/text/text'
 import { User } from "@/graphql/schema.types";
 import { getDateColor } from "@/utilities";
@@ -153,11 +153,11 @@ export const ProjectCard = ({
                         gap: "8px",
                     }}
                 >
-                    {/* <TextIcon
+                    <TextIcon
                         style={{
                             marginRight: "4px",
                         }}
-                    /> */}
+                    />
                     {dueDateOptions && (
                         <Tag
                             icon={

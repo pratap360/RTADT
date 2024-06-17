@@ -8,12 +8,12 @@ import { DragEndEvent } from "@dnd-kit/core";
 import { TaskUpdateInput } from "@/graphql/schema.types";
 import { TasksQuery, TaskStagesQuery } from "@/graphql/types";
 
-import { KanbanAddCardButton } from "../components";
+import { KanbanAddCardButton } from "@/components/tasks/kanban/add-card-button";
 
 import { KanbanBoard, KanbanBoardContainer } from "@/components/tasks/kanban/board";
 import KanbanItem  from "@/components/tasks/kanban/item";
 
-import { ProjectCardMemo, ProjectCardSkeleton } from "./kanban/card";
+import { ProjectCardMemo, ProjectCardSkeleton } from "@/components/tasks/kanban/card";
 import { KanbanColumn, KanbanColumnSkeleton } from "@/components/tasks/kanban/column";
 
 import {TASK_STAGES_QUERY,TASKS_QUERY,} from "@/graphql/queries";
