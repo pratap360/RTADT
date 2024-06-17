@@ -1,7 +1,7 @@
 import React from "react";
 
-import { CreateButton, DeleteButton, EditButton, FilterDropdown, List } from '@refinedev/antd'
-import { HttpError, getDefaultFilter, useGo, useTable } from '@refinedev/core';
+import { CreateButton, DeleteButton, EditButton, FilterDropdown, List, useTable } from '@refinedev/antd'
+import { HttpError, getDefaultFilter, useGo } from '@refinedev/core';
 
 import { SearchOutlined } from '@ant-design/icons';
 import { Input, Space, Table } from 'antd'
@@ -21,17 +21,17 @@ type Company = GetFieldsFromList<CompaniesListQuery>;
 
 export const CompanyList = ({ children }: React.PropsWithChildren) => {
   const go = useGo();
-  // <Company, HttpError, Company>
-  const {tableProps, filters } = useTable({
+  
+  const { tableProps, filters } = useTable<Company, HttpError, Company>({
     resource: "companies",
-    onSearch: (values) => {
+    onSearch: (values: { name: any; }) => {
       return [
         {
           field: "name",
           operator: "contains",
           value: values.name,
-        }
-      ]
+        },
+      ];
     },
     sorters: {
       initial: [

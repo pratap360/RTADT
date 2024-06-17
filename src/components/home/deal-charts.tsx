@@ -56,7 +56,17 @@ const DealsChart = () => {
           value: `$${Number(data.value)/1000}k`
         }
       }
-    }
+    },
+
+    areaStyle: (datum) => {
+      const won = "l(270) 0:#ffffff 0.5:#b7eb8f 1:#52c41a";
+      const lost = "l(270) 0:#ffffff 0.5:#f3b7c2 1:#ff4d4f";
+      return { fill: datum.state === "Won" ? won : lost };
+    },
+    color: (datum) => {
+      return datum.state === "Won" ? "#52C41A" : "#F5222D";
+    },
+
   }
   
   return (
