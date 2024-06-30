@@ -1,15 +1,23 @@
-import { Popover,Button } from "antd"
-import CustomAvatar from "../../custom-avatar"
+import React from "react";
+
 import { useGetIdentity } from "@refinedev/core"
+
+
+// import SettingOutlined from "@ant-design/icons/lib/icons/SettingOutlined";
+import { SettingOutlined } from "@ant-design/icons";
+import { Popover,Button } from "antd"
+
 import { User } from "@/graphql/schema.types";
-import { useState } from "react";
+
+
+import CustomAvatar from "../../custom-avatar"
+// import { useState } from "react";
 import { Text } from "@/components/text/text";
-import SettingOutlined from "@ant-design/icons/lib/icons/SettingOutlined";
 import { AccountSettings } from "../account-setting";
 
 const CurrentUser = () => {
-  const [IsOpen, setIsOpen] = useState(false)
-  const {data:user} = useGetIdentity<User>()
+  const [IsOpen, setOpened] = React.useState(false);
+  const {data:user} = useGetIdentity<User>();
 
   const content = (
     <div style={{
@@ -33,13 +41,13 @@ const CurrentUser = () => {
     }}
       >
         <Button
-        style={{textAlign:'left'}}
-        icon={<SettingOutlined/>}
-        text="text"
-        block
-        onClick={() => setIsOpen(true)}
+          style={{ textAlign: "left" }}
+          icon={<SettingOutlined />}
+          type="text"
+          block
+          onClick={() => setOpened(true)}
         >
-          Account Setting
+          Account settings
         </Button>
       </div>
     </div>
@@ -65,7 +73,7 @@ const CurrentUser = () => {
         {user && (
           <AccountSettings
           opened={IsOpen}
-          setOpened={setIsOpen}
+          setOpened={setOpened}
           userId={user.id}
           />
         )}
